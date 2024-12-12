@@ -1,6 +1,6 @@
-import {getCSS} from "./comum.js"
+import { getCSS } from "./comum.js"
 async function redesFavoritasMundo() {
-    const url = 'https://raw. githubusercontent.com/guilhermeonrails/api/main/redes-favoritas.json'
+    const url = 'https://raw.githubusercontent.com/guilhermeonrails/api/main/redes-favoritas.json'
     const res = await fetch(url)
     const dados = await res.json()
     console.log(dados);
@@ -8,58 +8,38 @@ async function redesFavoritasMundo() {
     const valores = Object.values(dados)
     const data = [
         {
-        
-        values: valores,
-        labels: redes,
-        type: 'pie',
-        textinfo: 'label+percent',
-        
+
+            values: valores,
+            labels: redes,
+            type: 'pie',
+            textinfo: 'label+percent',
+
         }
-        ]
-        const layout = {
-            plot_bgcolor: getCSS('--cor-de-fundo'),
-            paper_bgcolor: getCSS('--cor-de-fundo'),
-            title: {
+    ]
+    const layout = {
+        plot_bgcolor: getCSS('--cor-de-fundo'),
+        paper_bgcolor: getCSS('--cor-de-fundo'),
+        title: {
             text: 'Redes sociais com mais usuários no mundo',
             x: 0,
             font: {
-            color: getCSS('--cor-primaria'),
-            family: getCSS('--fonte'),
-            size: 30
+                color: getCSS('--cor-primaria'),
+                family: getCSS('--fonte'),
+                size: 30
             }
-            },
-            legend: {
-                font: {
+        },
+        legend: {
+            font: {
                 color: getCSS('--cor-primaria'),
                 size: 16
-                },
-                },
+            },
+        }
+    }
 
-            xaxis: {
-                tickfont: tickConfig,
-                
-                title: {
-                text: 'nome das redes sociais',
-                font: {
-                color: getCSS('--cor-secundaria'),
-                }
-                },
-                },
-
-                yaxis: {
-                tickfont: tickConfig,
-                title: {
-                text: 'bilhoes de usuarios ativos',
-                font: {
-                color: getCSS('--cor-secundaria'),
-                }
-                }
-                }
-                }
-                const grafico = document.createElement('div')
-                grafico.className = 'grafico'
-                document.getElementById('graficos-container')
-                .appendChild(grafico)
-                Plotly.newPlot(grafico, data, layout)
-            }
-    redesFavoritasMundo()
+    const grafico = document.createElement('div')
+    grafico.className = 'grafico'
+    document.getElementById('graficos-container')
+        .appendChild(grafico)
+    Plotly.newPlot(grafico, data, layout)
+}
+redesFavoritasMundo()
