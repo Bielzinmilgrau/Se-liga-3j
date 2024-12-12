@@ -19,9 +19,11 @@ async function redesFavoritasMundo() {
     const layout = {
         plot_bgcolor: getCSS('--cor-de-fundo'),
         paper_bgcolor: getCSS('--cor-de-fundo'),
+        heigth: 700,
         title: {
             text: 'Redes sociais com mais usuários no mundo',
             x: 0,
+            
             font: {
                 color: getCSS('--cor-primaria'),
                 family: getCSS('--fonte'),
